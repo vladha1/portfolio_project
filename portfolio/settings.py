@@ -25,7 +25,7 @@ SECRET_KEY = 'm&w*q#-#&)4gbech78qb=a1szd23!+@d+4hvwh_s@4+9&9_-#3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.3.27','localhost']
 
 
 # Application definition
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'portfolio',
+    'jobs.apps.JobsConfig',
+    'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +78,13 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'portfoliodb',
+        'USER':'postgres',
+        'PASSWORD':'Carramba',
+        'HOST':'localhost',
+        'PORT':'5432'
+
     }
 }
 
@@ -118,3 +126,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_ROOT= BASE_DIR / 'media'
+MEDIA_ROOL='/media/'
